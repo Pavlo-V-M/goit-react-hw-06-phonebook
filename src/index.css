@@ -56,7 +56,7 @@ span {
   color: #010101;
 }
 
-@import-normalize;
+/* @import-normalize; */
 /* bring in normalize.css styles */
 
 body {
