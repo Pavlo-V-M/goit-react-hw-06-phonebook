@@ -5,16 +5,17 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { contactsReducer } from './contactsSlice';
 import { filterReducer } from './filterSlice';
+import { combineReducers } from '@reduxjs/toolkit';
 
 const persistConfig = {
   key: 'root',
   storage,
 };
 
-const rootReducer = {
+const rootReducer = combineReducers( {
   contacts: contactsReducer,
   filter: filterReducer,
-};
+})
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
