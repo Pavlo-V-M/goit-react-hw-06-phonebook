@@ -3,13 +3,10 @@ import { useSelector } from 'react-redux';
 import ContactForm from './contact-form/ContactForm';
 import ContactList from './contact-list/ContactList';
 import Filter from './filter/Filter';
+import { selectFilteredContacts } from './store/contactsSlice';
 
-export const App = () => {
-  const filteredContacts = useSelector((state) =>
-    state.contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(state.filter.toLowerCase())
-    )
-  );
+const App = () => {
+  const filteredContacts = useSelector(selectFilteredContacts);
 
   return (
     <div className="AppWrap">
@@ -21,6 +18,9 @@ export const App = () => {
     </div>
   );
 };
+
+export default App;
+
 
 // App.jsx
 

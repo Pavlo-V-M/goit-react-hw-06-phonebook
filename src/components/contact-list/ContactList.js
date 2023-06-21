@@ -2,9 +2,12 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../store/contactsSlice';
 
-const ContactList = (props) => {
-  const { contacts } = props;
+const ContactList = ({ contacts }) => {
   const dispatch = useDispatch();
+
+  if (!contacts || !Array.isArray(contacts)) {
+    return null; // or return a message indicating no contacts
+  }
 
   return (
     <div>
